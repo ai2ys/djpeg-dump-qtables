@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  djpeg: 
+    container_name: 'djpeg'
+    build:
+      context: .
+      dockerfile: dockerfile
+    image: djpeg:0.0.0
+    command: ["/bin/ash", "-c", "djpeg -verbose -verbose -dct fast -nosmooth -outfile /dev/null"]
+    stdin_open: true # equivalent: docker run -i 
