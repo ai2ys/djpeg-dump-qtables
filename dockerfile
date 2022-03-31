@@ -1,5 +1,5 @@
-FROM alpine:3.15.3
+FROM debian:stable-20220328-slim
 
-RUN apk update && apk add --no-cache \
-    libjpeg-turbo-utils \
-  && rm -rf /var/cache/apk/*
+RUN apt-get update && apt-get install -y \
+    libjpeg-progs \
+  && rm -rf /var/lib/apt/lists/*
