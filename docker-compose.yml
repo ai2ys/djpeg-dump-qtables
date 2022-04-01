@@ -6,5 +6,4 @@ services:
       context: .
       dockerfile: dockerfile
     image: ai2ys/djpeg/debian-slim:0.0.0
-    command: ["/bin/bash", "-c", "djpeg -verbose -verbose -dct fast -nosmooth -outfile /dev/null"]
     stdin_open: true # equivalent: docker run -i 
