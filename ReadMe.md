@@ -1,17 +1,13 @@
 # Dumping JPEG Tables
 The command line tool `djpeg` can be used to dump the JPEG quantization tables. These tables affect the resulting quality of the image. Low values result in a better image quality with less artifacts and higher values result in lower image quality with more visible artifacts. For further information please refer to [https://en.wikipedia.org/wiki/JPEG](https://en.wikipedia.org/wiki/JPEG).
 
-To check if a poor image quality is caused by a high compression due to high quantization table values is can be useful to dump these tables and analyze them.
+To check, if a poor image quality is caused by a high compression due to high quantization table values is can be useful to dump these tables and analyzing them.
 
 ## Installing `djpeg` on Ubuntu/Debian
 ```bash
 sudo apt-get update
 sudo apt-get install -y libjpeg-progs
 ```
-
-## Dumping the tables
-To just dump the 
-
 
 ## Using the Docker image/container
 This Docker image is based on "alpine" and therefore is small in size.
