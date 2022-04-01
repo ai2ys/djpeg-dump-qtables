@@ -2,11 +2,12 @@
 
 ```bash
 # processing single or multiple files
-./dump_jpeg_tables <file paths, or patter *.jpg>
+./dump_jpeg_tables <file paths, or pattern *.jpg>
 ```
 
-Example output
+Example usage & output
 ```
+$ ./dump_jpep_tables.sh img2.jpg
 input file: 'img2.jpg'
 libjpeg-turbo version 2.0.6 (build 20210314)
 Copyright (C) 2009-2020 D. R. Commander
