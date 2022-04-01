@@ -1,12 +1,32 @@
 # Dumping JPEG Tables
+The command line tool `djpeg` can be used to dump the JPEG quantization tables. These tables affect the resulting quality of the image. Low values result in a better image quality with less artifacts and higher values result in lower image quality with more visible artifacts. For further information please refer to [https://en.wikipedia.org/wiki/JPEG](https://en.wikipedia.org/wiki/JPEG).
+
+To check if a poor image quality is caused by a high compression due to high quantization table values is can be useful to dump these tables and analyze them.
+
+## Installing `djpeg` on Ubuntu/Debian
+```bash
+sudo apt-get update
+sudo apt-get install -y libjpeg-progs
+```
+
+## Dumping the tables
+To just dump the 
+
+
+## Using the Docker image/container
 This Docker image is based on "alpine" and therefore is small in size.
+
+
+### Dumping quantization tables
+Use the bash script [`./dump_jpeg_tables.sh`](./dump_jpeg_tables.sh) as described below. The bash script uses `docker-compose`.
+
 
 ```bash
 # processing single or multiple files
-./dump_jpeg_tables <file paths, or pattern *.jpg>
+./dump_jpeg_tables <file paths or pattern, e.g. *.jpg>
 ```
 
-Example usage & output
+Example usage & output, dumping the tables for a single file.
 ```
 $ ./dump_jpep_tables.sh img2.jpg
 input file: 'img2.jpg'
@@ -68,4 +88,15 @@ Start Of Scan: 3 components
     Component 3: dc=1 ac=1
   Ss=0, Se=63, Ah=0, Al=0
 End Of Image
+```
+
+#### Dumping quantization tables for single file without `docker-compose`
+```
+# building the image
+docker build -t ai2ys/djpeg/alpine:0.0.0 .
+```
+
+```
+# building the image
+cat <file path> | docker run --rm -i ai2ys/djpeg/alpine:0.0.0
 ```
