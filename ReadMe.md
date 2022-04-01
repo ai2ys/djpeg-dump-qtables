@@ -1,4 +1,5 @@
 # Dumping JPEG Tables
+This Docker image is based on "alpine" and therefore is small in size.
 
 ```bash
 # processing single or multiple files
