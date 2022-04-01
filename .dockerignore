@@ -2,3 +2,4 @@
 docker-compose.yml
 *.sh
 *.jpg
+*.code-workspace
