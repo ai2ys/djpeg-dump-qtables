@@ -5,6 +5,5 @@ services:
     build:
       context: .
       dockerfile: dockerfile
-    image: ai2ys/djpeg/ubtuntu:0.0.0
-    #command: ["/bin/sh", "-c", "djpeg -verbose -verbose -fast -outfile /dev/null"]
+    image: ai2ys/djpeg/alpine:0.0.0
     stdin_open: true # equivalent: docker run -i 
