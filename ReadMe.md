@@ -3,19 +3,34 @@ The command line tool `djpeg` can be used to dump the JPEG quantization tables. 
 
 To check, if a poor image quality is caused by a high compression due to high quantization table values is can be useful to dump these tables and analyzing them.
 
-## Installing `djpeg` on Ubuntu/Debian
+## 🐳 Fast forward using the pre-built Docker image
+Ready to use Docker image is available on DockerHub.
+[https://hub.docker.com/repository/docker/ai2ys/djpeg-dump-qtables](https://hub.docker.com/repository/docker/ai2ys/djpeg-dump-qtables)
+
+To dump the quantization tables of a JPEG file run the following command.
+```bash
+cat <jpeg file path> | docker run --rm -i ai2ys/djpeg-dump-qtables
+```
+
+Tested on Linux and Windows (with WSL2).
+
+## 🐧 Installing `djpeg` on Ubuntu/Debian locally
 ```bash
 sudo apt-get update
 sudo apt-get install -y libjpeg-progs
 ```
 
-## Using the Docker image/container
+## Dumping quantization tables using `djpeg`
+Using the command line tool `djpeg` locally the quantization tables of a file can be dumped using the following command.
+```bash
+djpeg -verbose -verbose -fast -outfile /dev/null <jpeg file path>
+```
+
+## 🐳 Building the Docker image and running the Docker container
 This Docker image is based on "alpine" and therefore is small in size.
 
-
-### Dumping quantization tables
-Use the bash script [`./dump_jpeg_tables.sh`](./dump_jpeg_tables.sh) as described below. The bash script uses `docker-compose`.
-
+### Batch processing
+For batch processing multiple files at once use the bash script [`./dump_jpeg_tables.sh`](./dump_jpeg_tables.sh) as described below. As the bash script uses `docker-compose` having installed `docker-compose` is a prerequisite.
 
 ```bash
 # processing single or multiple files
@@ -84,15 +99,4 @@ Start Of Scan: 3 components
     Component 3: dc=1 ac=1
   Ss=0, Se=63, Ah=0, Al=0
 End Of Image
-```
-
-#### Dumping quantization tables for single file without `docker-compose`
-```
-# building the image
-docker build -t ai2ys/djpeg/alpine:0.0.0 .
-```
-
-```
-# building the image
-cat <file path> | docker run --rm -i ai2ys/djpeg/alpine:0.0.0
 ```

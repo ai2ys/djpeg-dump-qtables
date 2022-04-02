@@ -5,5 +5,5 @@ services:
     build:
       context: .
       dockerfile: dockerfile
-    image: ai2ys/djpeg/alpine:0.0.0
+    image: ai2ys/djpeg-dump-qtables:0.0.0
     stdin_open: true # equivalent: docker run -i 
