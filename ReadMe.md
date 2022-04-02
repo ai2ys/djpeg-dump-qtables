@@ -29,6 +29,8 @@ djpeg -verbose -verbose -fast -outfile /dev/null <jpeg file path>
 ## 🐳 Building the Docker image and running the Docker container
 This Docker image is based on "alpine" and therefore is small in size.
 
+The batch script described below uses `docker-compose` for running the Docker container, which will also automatically build/pull the image, if not already available. 
+
 ### Batch processing
 For batch processing multiple files at once use the bash script [`./dump_jpeg_tables.sh`](./dump_jpeg_tables.sh) as described below. As the bash script uses `docker-compose` having installed `docker-compose` is a prerequisite.
 
