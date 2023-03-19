@@ -21,7 +21,7 @@ To dump the quantization tables of a JPEG file run the following command.
 - JPEG file from URL
 
     ```shell
-    curl -fsSL <jpeg file url> | docker run --rm -i ai2ys/djpeg-dump-qtables
+    curl -fsSL "<jpeg file url>" | docker run --rm -i ai2ys/djpeg-dump-qtables
     ```
 
 Tested on Linux and Windows (with WSL2).
